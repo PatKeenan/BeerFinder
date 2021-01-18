@@ -1,1 +1,154 @@
-/* You can add global styles to this file, and also import other style files */
+@import url("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css");
+
+
+$light-text-color: #FFFFFF;
+$accent-color: #33AAA8;
+
+
+body{
+    height: 100vh;
+    width: 100vw;
+    margin: 0;
+    padding: 0;
+    overflow-y: hidden;
+    
+    button:focus{
+        outline: none;
+    }
+    button:active{
+        outline: none;
+    }
+}
+.shrink{
+    font-size: 12px;
+    font-weight: 500 !important;
+    transition: ease-in-out .1s;
+    .input{
+        transition: ease-in-out .1s;
+    }
+}
+.grow{
+    font-size: 22px !important;
+}
+
+
+/* Home Page Hero Section  */
+
+.main-hero{
+    background-image: url("https://images.unsplash.com/photo-1532635241-17e820acc59f?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1603&q=80");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    height: 85vh;
+    transition: ease-in-out .5s;
+            /* Dont Close braket, everything is nested inside */
+/* ----------------------------------------------- */
+
+/* Logo and Brand Name Top Left Corner */
+
+/* First css is for mobile second is for over 576px */
+
+    /* Cup with Straw */
+    .icon-and-name{ 
+        position: absolute;
+        left: 10px;
+        top: 5px;
+        padding-left: 20px;
+    }
+    /* BeerFinder Text */
+    .main-brand-title{ 
+        color:$light-text-color;
+    }
+    /* Icon next to Text */
+    .bi{ 
+        font-size: 2rem;
+        color: $light-text-color;
+    }
+/* ----------------------------------------------- */
+
+    /* Search Bar inside Hero Container */
+    /* Contais a div that holds the label and input named input holder */
+    .search-bar{ /* Centered in screen white background */
+        display: flex;
+        padding: 8px 5px 8px 10px;
+        margin-left: 0px;
+        width: 85vw;
+        max-width: 600px !important;
+        height:70px;
+        background-color: $light-text-color;
+        border-radius: 30px;
+        /* Larger Screens */
+        @media (min-width: 576px){
+            padding: 10px 5px 10px 20px;
+        }
+
+    }
+
+    .input-holder{
+            input{
+            border: none;
+            font-size: 14px;
+            transition: ease-in-out .1s;
+
+            @media (min-width: 576px){
+                letter-spacing: 2px;
+                font-size: 16px;
+            }
+        }
+        label{
+            letter-spacing: 1px;
+            transition: ease-in-out .1s;
+        }
+        input:focus{
+            border: none;
+            outline: none;
+        }
+        input:active{
+            border: none;
+            outline: none;
+        }
+}
+
+    /* Still inside the hero section */
+
+    button{
+        border-radius: 30px;
+        background-color: $accent-color;
+        color: $light-text-color;
+        border: none;
+        padding:5px 15px;
+
+        .bi{
+            font-size: 1rem;
+            padding-right: 10px;
+        }
+        @media (min-width: 576px){
+            padding:10px 30px;
+        }
+    }
+    button:active{
+        transform: scale(.92);
+        transition: ease-in-out .1s;
+
+        .bi{
+            color: teal;
+        }
+    }
+}
+
+
+
+.search-results-hidden{
+     opacity: 0;
+     padding:10px;
+    
+}
+.search-results{
+    opacity: 1;
+    padding:10px;
+    transition: ease-in-out .3s;
+    transition-delay: .3s;
+}
+.searched{
+    height: 20vh !important;
+}
