@@ -3,12 +3,13 @@
     <div class="container-fluid d-flex flex-column align-items-end jusitfy-items-center">
       <div class="icon-and-name d-flex justify-items-center"  >
         <i class="bi bi-cup-straw pt-2"></i>
-        <h2 class="main-brand-title p-3">BeerFinder</h2>
+        <h2 class="main-brand-title p-3">BrewFinder</h2>
       </div>
       <div class="search-bar m-auto shadow-lg">
-        <div class="d-flex flex-column pb-2 input-holder">
-          <label for="" class="fw-bold" [ngClass]="{'shrink': shrinkStatus}">Find Breweries</label>
-          <input [(ngModel)]="zip" type="text" (click)="shrink()" placeholder="Search by State" required class="fw-light" [ngClass]="{'grow': shrinkStatus}">
+        <p class="locate">Find Breweries</p>
+        <div class="d-flex flex-column input-holder justify-content-center">
+          <!-- <label for="" class="fw-bold" [ngClass]="{'shrink': shrinkStatus}">Find Breweries</label> -->
+          <input [(ngModel)]="zip" type="text" (click)="shrink()" placeholder="Search By City or Keyword..." required class="fw-light" [ngClass]="{'grow': shrinkStatus}">
         </div>
         <button class="ms-auto shadow-sm" (click)="searchZip(zip)"><i class="icon bi-search"></i>Search</button>
       </div>
@@ -16,8 +17,7 @@
   </div>
 
 </section>
-<main>
-  <h3 [ngClass]="{'search-results': entryStatus}" class="search-results-hidden text-center">Showing Reseults For: {{ entry }}</h3>
+<main *ngIf="fetchData === true">
   <section  [ngClass]="{'search-results': entryStatus}" class="search-results-hidden">
     <app-beerlist *ngIf="fetchData === true" [toChild]="toChild" [fetchData]="fetchData"></app-beerlist>
   </section>

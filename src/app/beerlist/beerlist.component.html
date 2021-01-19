@@ -1,4 +1,4 @@
-<div class="h-auto scroll">
+<div class="h-auto scroll d-flex">
     <h4>Showing Results for {{ lengthOfData}} Breweries</h4>
     <div class="container flex" *ngIf='dataResponse'>
         <div class="row row-cols-1 row-cols-md-2 row-cols-lg-4 row-cols-xl-4 g-4">
@@ -16,5 +16,6 @@
             </div>
         </div>
     </div>
+    <!-- This data comes from the function that sets the data value to an error message when length of array is less than 1 -->
     <h3 *ngIf='dataResponse === false'>{{ data }}</h3>
 </div>
