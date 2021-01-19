@@ -1,16 +1,16 @@
 <section>
   <div class="main-hero d-flex justify-content-center"  [ngClass]="{'searched': entryStatus}" (mouseleave)="isShrunkCheck()">
-    <div class="container-fluid d-flex flex-column align-items-center jusitfy-items-center">
-      <div class="icon-and-name d-flex justify-items-center">
+    <div class="container-fluid d-flex flex-column align-items-end jusitfy-items-center">
+      <div class="icon-and-name d-flex justify-items-center"  >
         <i class="bi bi-cup-straw pt-2"></i>
         <h2 class="main-brand-title p-3">BeerFinder</h2>
       </div>
       <div class="search-bar m-auto shadow-lg">
         <div class="d-flex flex-column pb-2 input-holder">
           <label for="" class="fw-bold" [ngClass]="{'shrink': shrinkStatus}">Find Breweries</label>
-          <input [(ngModel)]="zip" type="text" (click)="shrink()" placeholder="Enter Zip Code..." class="fw-light" [ngClass]="{'grow': shrinkStatus}">
+          <input [(ngModel)]="zip" type="text" (click)="shrink()" placeholder="Enter Zip Code..." required class="fw-light" [ngClass]="{'grow': shrinkStatus}">
         </div>
-        <button class="ms-auto shadow-sm" (click)="searchZip(zip)"><i class="bi bi-search"></i>Search</button>
+        <button class="ms-auto shadow-sm" (click)="searchZip(zip)"><i class="icon bi-search"></i>Search</button>
       </div>
     </div>
   </div>
