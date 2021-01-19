@@ -5,10 +5,11 @@
             <div class="col" *ngFor="let brew of data">
                 <div class="card">
                     <div class="card-body">
-                        <div class="card-title fw-bold">{{ brew.city }}</div>
-                        <div class="card-title">{{ brew.name }}</div>
+                        <div class="card-title fw-bold">{{ brew.name }}</div>
+                        <div class="card-title">{{ brew.city }}</div>
                         <div class="card-text"> {{brew.brewery_type | titlecase}} </div>
-                        <div class="card-text"> {{brew.street | titlecase}} {{brew.city | titlecase}} {{brew.state | titlecase}} </div>
+                        <div class="card-text"> {{brew.street | titlecase}} {{brew.city | titlecase}}</div>
+                        <div class="card-text">{{brew.state | titlecase}}</div>
                         <div class="card-text"><a *ngIf="brew.website_url" href="{{brew.website_url}}" target="_blank">Visit Website</a></div>
                     </div>
                 </div>

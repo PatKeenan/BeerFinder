@@ -21,14 +21,10 @@ export class BeerlistComponent implements OnInit {
   constructor(private http: HttpClient) { }
 
   ngOnInit(): void {
-    if(this.fetchData){
-      console.log("True")
-    }else{
-      console.log("not True")
-    }
+    this.onFetchData(this.toChild)
   }
   onFetchData(toChild){
-    this.http.get(`https://api.openbrewerydb.org/breweries/search?query=new_jersey&sort=+name`)
+    this.http.get(`https://api.openbrewerydb.org/breweries/search?query=${toChild}&sort=-name`)
    /*  this.http.get('https://api.openbrewerydb.org/breweries/search?query=new_jersey') */
     .pipe(map(responseData => {
       const data = [];

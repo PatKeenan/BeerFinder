@@ -8,7 +8,7 @@
       <div class="search-bar m-auto shadow-lg">
         <div class="d-flex flex-column pb-2 input-holder">
           <label for="" class="fw-bold" [ngClass]="{'shrink': shrinkStatus}">Find Breweries</label>
-          <input [(ngModel)]="zip" type="text" (click)="shrink()" placeholder="Enter Zip Code..." required class="fw-light" [ngClass]="{'grow': shrinkStatus}">
+          <input [(ngModel)]="zip" type="text" (click)="shrink()" placeholder="Search by State" required class="fw-light" [ngClass]="{'grow': shrinkStatus}">
         </div>
         <button class="ms-auto shadow-sm" (click)="searchZip(zip)"><i class="icon bi-search"></i>Search</button>
       </div>
@@ -19,7 +19,7 @@
 <main>
   <h3 [ngClass]="{'search-results': entryStatus}" class="search-results-hidden text-center">Showing Reseults For: {{ entry }}</h3>
   <section  [ngClass]="{'search-results': entryStatus}" class="search-results-hidden">
-    <app-beerlist [toChild]="toChild" [fetchData]="fetchData"></app-beerlist>
+    <app-beerlist *ngIf="fetchData === true" [toChild]="toChild" [fetchData]="fetchData"></app-beerlist>
   </section>
 
 </main>
