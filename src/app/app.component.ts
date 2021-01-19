@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input, Output } from '@angular/core';
 
 @Component({
   selector: 'app-root',
@@ -9,17 +9,20 @@ export class AppComponent  {
   title = 'BeerFinder';
   shrinkStatus = false;
   entry = "";
+  fetchData = false
+  public toChild;
   entryStatus = false;
   public zip;
   
 
   searchZip(zip){
-    console.log(zip)
-    this.entry = this.zip
-    return this.entryStatus = !this.entryStatus, this.entry = this.zip, this.zip = "";
+    if(zip == "" || zip == /[^\s]/gi){
+      return this.entry = "Please Enter A Valid Input";
+    }else{
+      return this.entryStatus = !this.entryStatus, this.entry = this.zip, this.toChild = this.zip, this.zip = "", this.fetchData = !this.fetchData;
+    }
     
   }
-
   shrink(){
     if(this.shrinkStatus === false){
       return this.shrinkStatus = !this.shrinkStatus

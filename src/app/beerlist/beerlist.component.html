@@ -1,42 +1,19 @@
-<div class="h-100">
-    <div class="container flex">
+<div class="h-auto scroll">
+    <h4>Showing Results for {{ lengthOfData}} Breweries</h4>
+    <div class="container flex" *ngIf='dataResponse'>
         <div class="row row-cols-1 row-cols-md-2 row-cols-lg-4 row-cols-xl-4 g-4">
-            <div class="col">
+            <div class="col" *ngFor="let brew of data">
                 <div class="card">
                     <div class="card-body">
-                        <div class="card-title"> I'm a Title For A Card </div>
-                        <div class="card-text"> Lorem ipsum dolor sit amet consectetur adipisicing elit. Laborum quia ex nam, esse
-                            quisquam vel impedit eligendi eum </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col">
-                <div class="card">
-                    <div class="card-body">
-                        <div class="card-title"> I'm a Title For A Card </div>
-                        <div class="card-text"> Lorem ipsum dolor sit amet consectetur adipisicing elit. Laborum quia ex nam, esse
-                            quisquam vel impedit eligendi eum </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col">
-                <div class="card">
-                    <div class="card-body">
-                        <div class="card-title"> I'm a Title For A Card </div>
-                        <div class="card-text"> Lorem ipsum dolor sit amet consectetur adipisicing elit. Laborum quia ex nam, esse
-                            quisquam vel impedit eligendi eum </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col">
-                <div class="card">
-                    <div class="card-body">
-                        <div class="card-title fw-bold"> I'm a Title For A Card </div>
-                        <div class="card-text"> Lorem ipsum dolor sit amet consectetur adipisicing elit. Laborum quia ex nam, esse
-                            quisquam vel impedit eligendi eum </div>
+                        <div class="card-title fw-bold">{{ brew.city }}</div>
+                        <div class="card-title">{{ brew.name }}</div>
+                        <div class="card-text"> {{brew.brewery_type | titlecase}} </div>
+                        <div class="card-text"> {{brew.street | titlecase}} {{brew.city | titlecase}} {{brew.state | titlecase}} </div>
+                        <div class="card-text"><a *ngIf="brew.website_url" href="{{brew.website_url}}" target="_blank">Visit Website</a></div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
+    <h3 *ngIf='dataResponse === false'>{{ data }}</h3>
 </div>

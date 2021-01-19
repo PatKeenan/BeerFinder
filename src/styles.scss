@@ -7,12 +7,14 @@ $accent-color: #33AAA8;
 
 
 body{
-    height: 100vh;
+    height: auto;
     width: 100vw;
     margin: 0;
     padding: 0;
-    overflow-y: hidden;
-    
+    overflow-x: hidden;
+    a{
+        text-decoration: none;
+    }
    
     
     button:focus{ /* Acts as a Rest */
@@ -29,6 +31,9 @@ body{
             border: none;
             outline: none;
         }
+}
+.scroll {
+    overflow: scroll;
 }
 
 .shrink{
