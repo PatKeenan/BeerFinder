@@ -1,14 +1,19 @@
 <section>
   <div class="main-hero d-flex justify-content-center"  [ngClass]="{'searched': entryStatus}" (mouseleave)="isShrunkCheck()">
     <div class="container-fluid d-flex flex-column align-items-end jusitfy-items-center">
-      <div class="icon-and-name d-flex justify-items-center"  >
+      <div class="icon-and-name d-flex justify-items-center" [ngClass]="{'hide-icon-and-name': entryStatus}" >
         <i class="bi bi-cup-straw pt-2"></i>
         <h2 class="main-brand-title p-3">BrewFinder</h2>
       </div>
+        <div class="github-pat d-flex justify-items-center" [ngClass]="{'hide-icon-and-name': entryStatus}">
+          <a href="https://github.com/PatKeenan/BeerFinder" target="_blank" title="Patrick Keenan Github"><i class="bi bi-github ps-2"></i></a>
+        </div>
+
       <div class="search-bar m-auto shadow-lg">
         <div class="d-block input-holder justify-content-center">
           <p class="find-breweries-text">Find Breweries</p>
-          <input [(ngModel)]="zip" type="text" placeholder="Search By City or Keyword..." required class="fw-light">
+          <input [(ngModel)]="zip" type="text" placeholder="Search By City or Keyword..." required class="fw-light" *ngIf="entryStatus === false">
+          <p *ngIf="entryStatus === true">{{zip | titlecase}}</p>
         </div>
         <button class="ms-auto shadow-sm align-items-middle" (click)="searchZip(zip)" *ngIf="entryStatus === false">
           <i class="icon bi-search"></i>Search</button>
@@ -29,7 +34,8 @@
 
 </main>
 <footer class="">
-  <div class="container d-flex justify-content-center align-items-center">
-    <p class="m-auto text-center">Credit to <a href="https://chrisjmears.com/" target="_blank">Chris J Mears</a> and <a href="https://wanderingleafstudios.com/" target="_blank">Wandering Lead Studios LLC for the</a> for the <a href="https://www.openbrewerydb.org/" target="_blank">Open Brewery API.</a></p>
+  <div class="container d-flex justify-content-center align-items-center flex-column">
+
+    <p class="m-auto text-center">Site By <a href="https://github.com/PatKeenan/BeerFinder" target="_blank" title="Patrick Keenan Github">Pat Keenan</a>. Credit to <a href="https://chrisjmears.com/" target="_blank">Chris J Mears</a> and <a href="https://wanderingleafstudios.com/" target="_blank">Wandering Lead Studios LLC for the</a> for the <a href="https://www.openbrewerydb.org/" target="_blank">Open Brewery API</a>.</p>
   </div>
 </footer>

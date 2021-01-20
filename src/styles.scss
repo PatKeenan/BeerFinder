@@ -5,7 +5,7 @@
 $light-text-color: #FFFFFF;
 $accent-color: #33AAA8;
 $yellow-beer: #F8B600;
-$purple-notes:#9F769D;
+$red-notes:#E04910;
 
 
 body{
@@ -71,7 +71,25 @@ body{
         left: 10px;
         top: 5px;
         padding-left: 20px;
+        transition: ease-in-out 1s;
     }
+    .hide-icon-and-name{ /* Triggered when entryStatus is true */
+        opacity: 0;
+        transition: ease-in-out 1s;
+    }
+    .github-pat{
+        position: absolute;
+        right: 10px;
+        margin: 0;
+        padding-right: 20px;
+        top: 12px;
+        transition: ease-in-out 1s;
+        color:$light-text-color;
+        a{
+            color:$light-text-color;
+        }
+    }
+
     /* BeerFinder Text */
     .main-brand-title{ 
         color:$light-text-color;
@@ -110,11 +128,12 @@ body{
         color:#092630 !important;
         margin-bottom: 0;
         margin-top: 0px;
+        transition: ease-in-out .1s;
     }
     .input-holder{
         width: 70%;
         padding-left: 10px;
-            input{
+            input, p{
             border: none;
             text-transform: capitalize;
             font-size: 14px;
@@ -125,10 +144,8 @@ body{
                 font-size: 16px;
             }
         }
-        label{
-            letter-spacing: 1px;
-            transition: ease-in-out .1s;
-        }
+        
+        
     }
 
     /* Still inside the hero section */
@@ -189,13 +206,21 @@ body{
     transition: ease-in-out .3s;
     transition-delay: 1s;
 }
+
+
+
+
+
 .searched{
-    height: 20vh !important;
+    height: 15vh !important;
     transition:  ease-in-out .89s !important;
   
 }
+
+
+
 main{
-    padding-bottom:25px;
+    padding-bottom:30px;
 }
 
 footer{
@@ -206,15 +231,22 @@ footer{
     color: white;
     background-color: $accent-color;
     p{
-        font-size: 14px;
+        font-size: 12px;
         font-weight: 600 !important;
         padding: 8px;
         letter-spacing: 1.5px;
     }
-    a{
+    a{  
         color: $yellow-beer;
+        font-size: 12px;
     }
     a:hover{
-            color:$purple-notes !important;
+            color:$red-notes !important;
         }
+
+    @media (min-width: 576px){
+        p, a{
+            font-size: 14px;
+        }
+    }
 }
