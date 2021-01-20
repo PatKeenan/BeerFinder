@@ -250,3 +250,46 @@ footer{
         }
     }
 }
+
+@keyframes opacityOn {
+    0% {
+        transform: translateY(-100px);
+    }
+    20%{
+        transform: translateY(0px);
+    }
+    50%{
+      transform: translateY(0px);
+    }
+    80%{
+       transform: translateY(0px);
+    }
+    100% {
+        transform: translateY(-100px);
+    }
+}
+.errorMessage{
+    position: absolute;
+    display: flex;
+    justify-items: center;
+    align-items: center;
+    top: 0;
+    left:0;
+    right: 0;
+    z-index: 4;
+    transform: translateY(-100px);
+    height: 60px;
+    text-align: center;
+    color: white;
+    background-color: $red-notes;
+    animation-name: opacityOn;
+    animation-duration: 2500ms;
+    p{
+        font-size: 18px;
+    }
+   /*  @media (min-width: 576px){
+        .errorMessage{
+            left: 38%;
+        }
+    } */
+}

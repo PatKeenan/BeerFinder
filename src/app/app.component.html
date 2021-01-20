@@ -1,5 +1,6 @@
 <section>
   <div class="main-hero d-flex justify-content-center"  [ngClass]="{'searched': entryStatus}" (mouseleave)="isShrunkCheck()">
+    <div class="errorMessage" *ngIf="errorMessage === true"><p class="m-auto">{{entry}}</p></div>
     <div class="container-fluid d-flex flex-column align-items-end jusitfy-items-center">
       <div class="icon-and-name d-flex justify-items-center" [ngClass]="{'hide-icon-and-name': entryStatus}" >
         <i class="bi bi-cup-straw pt-2"></i>

@@ -12,17 +12,20 @@ export class AppComponent  {
   fetchData = false
   public toChild;
   entryStatus = false;
-  public zip;
-  
+  public zip ="";
+  errorMessage = false;
 
   searchZip(zip){
-    if(zip == ""){
-      return this.entry = "Please Enter A Valid Input";
-    }else{
+    if(zip == "" || /^\s+|^\W/.test(zip)){
+      return this.entry = "Please Enter A Valid Search", this.throwError();
+    }else if( /^brewery|^micro|^planning|^brewpub|^\W/gi.test(zip.trim())){
+      return this.entry = "Please Narrow Your Search", this.throwError();
+    }
+    else{
       if(this.entryStatus){
       return this.entryStatus = !this.entryStatus, this.entry = this.zip, this.toChild = this.zip,this.zip = "", this.fetchData = !this.fetchData, this.shrink();
     }
-      return this.entryStatus = !this.entryStatus, this.entry = this.zip, this.toChild = this.zip, /* this.zip = "" */ this.fetchData = !this.fetchData, this.shrink();
+      return this.entryStatus = !this.entryStatus, this.entry = this.zip, this.toChild = this.zip, this.errorMessage = false, this.fetchData = !this.fetchData, this.shrink();
     }
     
   }
@@ -39,6 +42,11 @@ export class AppComponent  {
       return this.shrinkStatus = !this.shrinkStatus
     }else{
       return this.shrinkStatus
+    }
+  }
+  throwError(){
+    if(this.errorMessage === false){
+      return this.errorMessage = true, this.zip = "", setTimeout(()=>{return this.errorMessage = !this.errorMessage},2500 )
     }
   }
 
