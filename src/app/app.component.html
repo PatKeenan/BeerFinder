@@ -6,12 +6,17 @@
         <h2 class="main-brand-title p-3">BrewFinder</h2>
       </div>
       <div class="search-bar m-auto shadow-lg">
-        <p class="locate">Find Breweries</p>
-        <div class="d-flex flex-column input-holder justify-content-center">
-          <!-- <label for="" class="fw-bold" [ngClass]="{'shrink': shrinkStatus}">Find Breweries</label> -->
-          <input [(ngModel)]="zip" type="text" (click)="shrink()" placeholder="Search By City or Keyword..." required class="fw-light" [ngClass]="{'grow': shrinkStatus}">
+        <div class="d-block input-holder justify-content-center">
+          <p class="find-breweries-text">Find Breweries</p>
+          <input [(ngModel)]="zip" type="text" placeholder="Search By City or Keyword..." required class="fw-light">
         </div>
-        <button class="ms-auto shadow-sm" (click)="searchZip(zip)"><i class="icon bi-search"></i>Search</button>
+        <button class="ms-auto shadow-sm align-items-middle" (click)="searchZip(zip)" *ngIf="entryStatus === false">
+          <i class="icon bi-search"></i>Search</button>
+          <button class="ms-auto shadow-sm align-items-middle" (click)="searchZip(zip)" *ngIf="entryStatus === true"
+          [ngClass]="{'turn-red': entryStatus}">
+            <i class="icon bi-x-circle"></i>
+           Clear
+          </button>
       </div>
     </div>
   </div>
@@ -23,3 +28,8 @@
   </section>
 
 </main>
+<footer class="">
+  <div class="container d-flex justify-content-center align-items-center">
+    <p class="m-auto text-center">Credit to <a href="https://chrisjmears.com/" target="_blank">Chris J Mears</a> and <a href="https://wanderingleafstudios.com/" target="_blank">Wandering Lead Studios LLC for the</a> for the <a href="https://www.openbrewerydb.org/" target="_blank">Open Brewery API.</a></p>
+  </div>
+</footer>
