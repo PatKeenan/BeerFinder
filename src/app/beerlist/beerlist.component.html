@@ -1,16 +1,42 @@
-<div class="h-100 scroll d-flex flex-column" *ngIf='dataResponse'>
+<div class="h-100 scroll d-flex flex-column pb-md-4 pb-5" *ngIf='dataResponse' (scroll)="scrolled($event)">
     <div class="container flex">
-        <h4 class="py-2">Showing Results for {{ lengthOfData}} Breweries</h4>
+
+        <h4 class="py-2 fs-1 fs-md-3">
+            Showing Results for {{ lengthOfData}} Breweries
+        </h4>
+
         <div class="row row-cols-1 row-cols-md-2 row-cols-lg-4 row-cols-xl-4 g-4">
-            <div class="col" *ngFor="let brew of data">
+            <div class="col" *ngFor="let brew of data" name="top">
+                <button class="btn btn-secondary sticky-element" *ngIf="showBackToTop" (click)="sendBackUp()">
+                    <i class="bi bi-arrow-up-circle-fill" ></i>
+                </button>
                 <div class="card">
                     <div class="card-body">
-                        <div class="card-title fw-bold">{{ brew.name }}</div>
+                        <div class="card-title fw-bold">
+                            {{ brew.name }}
+                        </div>
                         <hr class="dropdown-divider">
-                        <div class="card-text pb-1">Address:</div>
-                        <div class="card-text fst-italic add-link" *ngIf='!brew.street'>{{brew.city | titlecase}}, {{brew.state | titlecase}}</div>
-                        <div class="card-text fst-italic add-link" *ngIf='brew.street'><a href="https://www.google.com/maps/search/?api=1&query={{ brew.name }}" target="_blank">{{brew.street | titlecase}}<br>{{brew.city | titlecase}}, {{brew.state | titlecase}}</a></div>
-                        <div class="d-flex brew-type align-items-center"><a href="{{brew.website_url}}" target="_blank" *ngIf='brew.website_url'>Visit Website</a><p>({{brew.brewery_type | titlecase}})</p></div>
+                        <div class="card-text pb-1">
+                            Address:
+                        </div>
+                        <div class="card-text fst-italic add-link" *ngIf='!brew.street'>
+                            {{brew.city | titlecase}}, {{brew.state | titlecase}}
+                        </div>
+                        <div class="card-text fst-italic add-link" *ngIf='brew.street'>
+                            <a href="https://www.google.com/maps/search/?api=1&query={{ brew.name }}" target="_blank">
+                                {{brew.street | titlecase}}
+                                <br>
+                                {{brew.city | titlecase}}, {{brew.state | titlecase}}
+                            </a>
+                        </div>
+                        <div class="d-flex brew-type align-items-center">
+                            <a href="{{brew.website_url}}" target="_blank" *ngIf='brew.website_url'>
+                                Visit Website
+                            </a>
+                            <p class="m-0">
+                                ({{brew.brewery_type | titlecase}})
+                            </p>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -18,10 +44,12 @@
     </div>
 </div>
 
-
+<!-- Only show if there is no data from the api -->
 <div class="d-flex height-80 none-found" *ngIf='dataResponse === false'>
     <div class="m-auto d-flex flex-column align-items-center justify-items-center">
-        <h3 class="text-center m-auto">No Breweries Found</h3>
+        <h3 class="text-center m-auto">
+            No Breweries Found
+        </h3>
         <i class="bi bi-eye-slash display-3"></i>
     </div>
 </div>

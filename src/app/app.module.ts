@@ -5,7 +5,6 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
 import { BeerlistComponent } from './beerlist/beerlist.component';
-import { SearchComponent } from './search/search.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http'
@@ -15,7 +14,6 @@ import { HttpClientModule } from '@angular/common/http'
     AppComponent,
     HomeComponent,
     BeerlistComponent,
-    SearchComponent,
     PageNotFoundComponent
   ],
   imports: [

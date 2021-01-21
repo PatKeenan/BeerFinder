@@ -15,6 +15,7 @@ export class AppComponent  {
   public zip ="";
   errorMessage = false;
 
+
   searchZip(zip){
     if(zip == "" || /^\s+|^\W/.test(zip)){
       return this.entry = "Please Enter A Valid Search", this.throwError();

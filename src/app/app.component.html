@@ -1,25 +1,70 @@
 <section>
-  <div class="main-hero d-flex justify-content-center"  [ngClass]="{'searched': entryStatus}" (mouseleave)="isShrunkCheck()">
-    <div class="errorMessage" *ngIf="errorMessage === true"><p class="m-auto">{{entry}}</p></div>
+  <div class="main-hero d-flex justify-content-center" 
+  [ngClass]="{'searched': entryStatus}" 
+  (mouseleave)="isShrunkCheck()"
+  >
+
+    <div class="errorMessage" 
+    *ngIf="errorMessage === true"
+    >
+      <p class="m-auto">
+        {{entry}}
+      </p>
+    </div>
+
     <div class="container-fluid d-flex flex-column align-items-end jusitfy-items-center">
-      <div class="icon-and-name d-flex justify-items-center beer-icon" [ngClass]="{'hide-icon-and-name moveFromLeft': entryStatus}" >
-        <i class="bi bi-cup-straw pt-2"></i>
-        <h2 class="main-brand-title p-3">BrewFinder</h2>
+
+      <div class="icon-and-name d-flex justify-items-center beer-icon" 
+      [ngClass]="{'hide-icon-and-name moveFromLeft': entryStatus}"
+      >
+        <a routerLink="/" 
+        class="d-flex"
+        >
+          <i class="bi bi-cup-straw pt-2"></i>
+          <h2 class="main-brand-title p-3">
+            BrewFinder
+          </h2>
+        </a>
       </div>
-        <div class="github-pat d-flex justify-items-center" [ngClass]="{'hide-icon-and-name move-right': entryStatus}">
-          <a href="https://github.com/PatKeenan/BeerFinder" target="_blank" title="Patrick Keenan Github"><i class="bi bi-github ps-2"></i></a>
+        <div class="github-pat d-flex justify-items-center" 
+        [ngClass]="{'hide-icon-and-name move-right ': entryStatus}"
+        >
+          <a href="https://github.com/PatKeenan/BeerFinder" 
+          target="_blank" 
+          title="Patrick Keenan Github"
+          >
+          <i class="bi bi-github ps-2"></i></a>
         </div>
 
       <div class="search-bar m-auto shadow-lg">
         <div class="d-block input-holder justify-content-center">
-          <p class="find-breweries-text">Find Breweries</p>
-          <input [(ngModel)]="zip" type="text" placeholder="Search By City or Keyword..." required class="fw-light" *ngIf="entryStatus === false">
-          <p *ngIf="entryStatus === true" class="fw-light">{{zip | titlecase}}</p>
+          <p class="find-breweries-text">
+            Find Breweries
+          </p>
+          <input [(ngModel)]="zip" 
+          type="text" 
+          placeholder="Search By City or Keyword..." 
+          class="fw-light" 
+          *ngIf="entryStatus === false"
+          >
+          <p *ngIf="entryStatus === true" 
+          class="fw-light"
+          >
+            {{zip | titlecase}}
+          </p>
         </div>
-        <button class="ms-auto shadow-sm align-items-middle" (click)="searchZip(zip)" *ngIf="entryStatus === false">
-          <i class="icon bi-search"></i>Search</button>
-          <button class="ms-auto shadow-sm align-items-middle" (click)="searchZip(zip)" *ngIf="entryStatus === true"
-          [ngClass]="{'turn-red': entryStatus}">
+        <button class="ms-auto shadow-sm align-items-middle" 
+        (click)="searchZip(zip)" 
+        *ngIf="entryStatus === false"
+        >
+          <i class="icon bi-search"></i>
+          Search
+        </button>
+          <button class="ms-auto shadow-sm align-items-middle" 
+          (click)="searchZip(zip)" 
+          *ngIf="entryStatus === true"
+          [ngClass]="{'turn-red': entryStatus}"
+          >
             <i class="icon bi-x-circle"></i>
            Clear
           </button>
@@ -28,9 +73,18 @@
   </div>
 
 </section>
-<main *ngIf="fetchData === true" class="w-screen">
-  <section  [ngClass]="{'search-results': entryStatus}" class="search-results-hidden h-auto">
-    <app-beerlist *ngIf="fetchData === true" [toChild]="toChild" [fetchData]="fetchData"></app-beerlist>
+
+<main *ngIf="fetchData === true" 
+class="w-screen"
+>
+  <section [ngClass]="{'search-results': entryStatus}" 
+  class="search-results-hidden h-auto"
+  >
+    <app-beerlist *ngIf="fetchData === true" 
+    [toChild]="toChild" 
+    [fetchData]="fetchData"
+    >
+  </app-beerlist>
   </section>
 
 </main>

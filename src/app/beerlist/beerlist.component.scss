@@ -6,12 +6,33 @@
     right: 0;
     width: 100%;
     justify-content: space-between;
-    p{
-        margin: 0;
-    }
 }
-.add-link *{
+.add-link *{ /* sets the address to a light grey */
     text-decoration: none;
     color: rgb(61, 61, 61) !important;
     
+}
+
+/* Scroll to top button */
+.sticky-element{
+  position: fixed;
+  bottom: 80px;
+  right: 10px;
+  z-index: 99;
+  @media (min-width: 600px){
+      bottom: 60px;
+      right: 10px;
+  }
+  @media (min-width: 900px){
+      bottom: 60px;
+      right: 40px;
+  }
+}
+.sticky-element:focus{
+    outline: none !important;
+    border: none !important;
+}
+button:focus buton:active button{
+    outline: none !important;
+    border: none !important;
 }

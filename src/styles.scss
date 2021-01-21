@@ -1,6 +1,6 @@
 @import url("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css");
 
-/* Colors and Typography*/
+/* Colors */
 
 $light-text-color: #FFFFFF;
 $accent-color: #33AAA8;
@@ -17,8 +17,6 @@ body{
     a{
         text-decoration: none;
     }
-   
-    
     button:focus{ /* Acts as a Rest */
         outline: none;
     }
@@ -29,23 +27,11 @@ body{
             border: none;
             outline: none;
         }
-        input:active{ /* Acts as a Rest */
-            border: none;
-            outline: none;
-        }
-}
-
-.shrink{
-    font-size: 12px;
-    font-weight: 500 !important;
-    transition: ease-in-out .1s;
-    -webkit-transition: ease-in-out .1s;
-    .input{
-        transition: ease-in-out .1s;
-        -webkit-transition: ease-in-out .1s;
+    input:active{ /* Acts as a Rest */
+        border: none;
+        outline: none;
     }
 }
-
 
 
 /* Home Page Hero Section  */
@@ -117,7 +103,7 @@ body{
         -webkit-animation-name: moveLeft !important;
         -webkit-animation-duration: 1000ms;
     }
-    /* Only have them move on small screens, the search button hits the github icon and opens the tab */
+    /* Only have The Icons on Large screens, the search button hits the github icon and opens the tab */
     @media (max-width: 560px) {
            .moveFromLeft{
                 animation-name: moveFromLeft !important;
@@ -137,6 +123,7 @@ body{
                 opacity: 0;
                 transition: ease-in-out 1s;
                 -webkit-transition: ease-in-out 1s;
+                display: none !important;
             }
     }
 
@@ -231,7 +218,7 @@ body{
 
     /* Still inside the hero section */
 
-    button{
+    button{ /* This is the main button for the search bar */
         border-radius: 30px;
         width:100px;
         background-color: $accent-color;
@@ -262,7 +249,7 @@ body{
         }
        
     }
-    .turn-red{
+    .turn-red{ /* Triggered once something is searched */
         transition: ease-in-out 1s;
         background-color: #E44700 ;
         -webkit-transition: ease-in-out 1s;
@@ -281,11 +268,14 @@ body{
 /* End of Main Hero Styles */
 /* ------------------------- */
 
-.search-results-hidden{
+.search-results-hidden{ /* Fallback incase function goes wrong */
      opacity: 0;
-     padding:10px;
-    
+     padding:10px; 
+     transition: ease-in-out 1s;
+     -webkit-transition: ease-in-out 1s;
 }
+
+
 .search-results{
     opacity: 1;
     padding:10px;
@@ -295,9 +285,7 @@ body{
 }
 
 
-
-
-
+/* Triggeres the Hero to Shrink if Searched is true */
 .searched{
     height: 15vh !important;
     transition:  ease-in-out .89s !important;
@@ -340,6 +328,8 @@ footer{
     }
 }
 
+
+/* Error Message */
 @keyframes opacityOn {
     0% {
         transform: translateY(-100px);
@@ -357,6 +347,7 @@ footer{
         transform: translateY(-100px);
     }
 }
+
 .errorMessage{
     position: absolute;
     display: flex;
@@ -378,11 +369,6 @@ footer{
     p{
         font-size: 18px;
     }
-   /*  @media (min-width: 576px){
-        .errorMessage{
-            left: 38%;
-        }
-    } */
 }
 
 /* Beer List Component Section */
