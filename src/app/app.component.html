@@ -14,7 +14,7 @@
         <div class="d-block input-holder justify-content-center">
           <p class="find-breweries-text">Find Breweries</p>
           <input [(ngModel)]="zip" type="text" placeholder="Search By City or Keyword..." required class="fw-light" *ngIf="entryStatus === false">
-          <p *ngIf="entryStatus === true">{{zip | titlecase}}</p>
+          <p *ngIf="entryStatus === true" class="fw-light">{{zip | titlecase}}</p>
         </div>
         <button class="ms-auto shadow-sm align-items-middle" (click)="searchZip(zip)" *ngIf="entryStatus === false">
           <i class="icon bi-search"></i>Search</button>
@@ -28,7 +28,7 @@
   </div>
 
 </section>
-<main *ngIf="fetchData === true" class="">
+<main *ngIf="fetchData === true" class="w-screen">
   <section  [ngClass]="{'search-results': entryStatus}" class="search-results-hidden h-auto">
     <app-beerlist *ngIf="fetchData === true" [toChild]="toChild" [fetchData]="fetchData"></app-beerlist>
   </section>

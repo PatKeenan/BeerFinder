@@ -24,7 +24,7 @@ export class BeerlistComponent implements OnInit {
     this.onFetchData(this.toChild)
   }
   onFetchData(toChild){
-    this.http.get(`https://api.openbrewerydb.org/breweries/search?query=${toChild}&sort=-name`)
+    this.http.get(`https://api.openbrewerydb.org/breweries/search?query=${toChild}`)
    /*  this.http.get('https://api.openbrewerydb.org/breweries/search?query=new_jersey') */
     .pipe(map(responseData => {
       const data = [];
