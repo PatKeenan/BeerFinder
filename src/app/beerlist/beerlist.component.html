@@ -1,6 +1,6 @@
-<div class="h-auto scroll d-flex">
-    <h4>Showing Results for {{ lengthOfData}} Breweries</h4>
-    <div class="container flex" *ngIf='dataResponse'>
+<div class="h-100 scroll d-flex flex-column" *ngIf='dataResponse'>
+    <div class="container flex">
+        <h4 class="py-2">Showing Results for {{ lengthOfData}} Breweries</h4>
         <div class="row row-cols-1 row-cols-md-2 row-cols-lg-4 row-cols-xl-4 g-4">
             <div class="col" *ngFor="let brew of data">
                 <div class="card">
@@ -16,6 +16,12 @@
             </div>
         </div>
     </div>
-    <!-- This data comes from the function that sets the data value to an error message when length of array is less than 1 -->
-    <h3 *ngIf='dataResponse === false'>{{ data }}</h3>
+</div>
+
+
+<div class="d-flex height-80 none-found" *ngIf='dataResponse === false'>
+    <div class="m-auto d-flex flex-column align-items-center justify-items-center">
+        <h3 class="text-center m-auto">No Breweries Found</h3>
+        <i class="bi bi-eye-slash display-3"></i>
+    </div>
 </div>

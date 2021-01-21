@@ -2,11 +2,11 @@
   <div class="main-hero d-flex justify-content-center"  [ngClass]="{'searched': entryStatus}" (mouseleave)="isShrunkCheck()">
     <div class="errorMessage" *ngIf="errorMessage === true"><p class="m-auto">{{entry}}</p></div>
     <div class="container-fluid d-flex flex-column align-items-end jusitfy-items-center">
-      <div class="icon-and-name d-flex justify-items-center" [ngClass]="{'hide-icon-and-name': entryStatus}" >
+      <div class="icon-and-name d-flex justify-items-center beer-icon" [ngClass]="{'hide-icon-and-name moveFromLeft': entryStatus}" >
         <i class="bi bi-cup-straw pt-2"></i>
         <h2 class="main-brand-title p-3">BrewFinder</h2>
       </div>
-        <div class="github-pat d-flex justify-items-center" [ngClass]="{'hide-icon-and-name': entryStatus}">
+        <div class="github-pat d-flex justify-items-center" [ngClass]="{'hide-icon-and-name move-right': entryStatus}">
           <a href="https://github.com/PatKeenan/BeerFinder" target="_blank" title="Patrick Keenan Github"><i class="bi bi-github ps-2"></i></a>
         </div>
 
@@ -28,15 +28,14 @@
   </div>
 
 </section>
-<main *ngIf="fetchData === true">
-  <section  [ngClass]="{'search-results': entryStatus}" class="search-results-hidden">
+<main *ngIf="fetchData === true" class="">
+  <section  [ngClass]="{'search-results': entryStatus}" class="search-results-hidden h-auto">
     <app-beerlist *ngIf="fetchData === true" [toChild]="toChild" [fetchData]="fetchData"></app-beerlist>
   </section>
 
 </main>
 <footer class="">
   <div class="container d-flex justify-content-center align-items-center flex-column">
-
     <p class="m-auto text-center">Site By <a href="https://github.com/PatKeenan/BeerFinder" target="_blank" title="Patrick Keenan Github">Pat Keenan</a>. Credit to <a href="https://chrisjmears.com/" target="_blank">Chris J Mears</a> and <a href="https://wanderingleafstudios.com/" target="_blank">Wandering Lead Studios LLC for the</a> for the <a href="https://www.openbrewerydb.org/" target="_blank">Open Brewery API</a>.</p>
   </div>
 </footer>

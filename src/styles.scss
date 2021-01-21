@@ -34,16 +34,15 @@ body{
             outline: none;
         }
 }
-.scroll {
-    overflow: scroll;
-}
 
 .shrink{
     font-size: 12px;
     font-weight: 500 !important;
     transition: ease-in-out .1s;
+    -webkit-transition: ease-in-out .1s;
     .input{
         transition: ease-in-out .1s;
+        -webkit-transition: ease-in-out .1s;
     }
 }
 
@@ -58,6 +57,7 @@ body{
     background-size: cover;
     height: 100vh;
     transition: ease-in-out .89s;
+    -webkit-transition: ease-in-out .89s;
             /* Dont Close braket, everything is nested inside */
 /* ----------------------------------------------- */
 
@@ -72,14 +72,91 @@ body{
         top: 5px;
         padding-left: 20px;
         transition: ease-in-out 1s;
+        -webkit-transition: ease-in-out 1s;
     }
-    .hide-icon-and-name{ /* Triggered when entryStatus is true */
-        opacity: 0;
+
+    /* Animation to move the top icons when something is searched */
+    @keyframes moveRight{
+        0%{
+            transform: translateX(0px);
+        }
+        100%{
+            transform: translateX(150px);
+        }
+    }
+     @keyframes moveLeft{
+        0%{
+            transform: translateX(150px);
+        }
+        100%{
+            transform: translateX(0px);
+        }
+    }
+    @keyframes moveFromRight{
+        0%{
+            transform: translateX(-150px);
+        }
+        100%{
+            transform: translateX(0px);
+        }
+    }
+    @keyframes moveFromLeft{
+        0%{
+            transform: translateX(0px);
+        }
+        100%{
+            transform: translateX(-150px);
+        }
+    }
+
+    .move-left{
+        animation-name: moveLeft;
+        animation-duration: 1000ms;
+        -webkit-animation-name: moveLeft !important;
+        -webkit-animation-duration: 1000ms;
+    }
+    /* Only have them move on small screens, the search button hits the github icon and opens the tab */
+    @media (max-width: 560px) {
+           .moveFromLeft{
+                animation-name: moveFromLeft !important;
+                animation-duration: 1000ms;
+                -webkit-animation-name: moveFromLeft !important;
+                -webkit-animation-duration: 1000ms;
+            }
+            .move-right{
+                animation-name: moveRight !important;
+                animation-duration: 1000ms;
+                -webkit-animation-name: moveRight !important;
+                -webkit-animation-duration: 1000ms;
+            }
+        }
+    @media (max-width: 1200px) {
+            .hide-icon-and-name{ /* Triggered when entryStatus is true */
+                opacity: 0;
+                transition: ease-in-out 1s;
+                -webkit-transition: ease-in-out 1s;
+            }
+    }
+
+    /* End of Animations for Icons */
+    .beer-icon{
+        transform: translateX(0px);
+        animation-name: moveFromRight;
+        animation-duration: 1000ms;
         transition: ease-in-out 1s;
+        -webkit-animation-name: moveFromRight;
+        -webkit-animation-duration: 1000ms;
+        -webkit-transition: ease-in-out 1s;
     }
     .github-pat{
         position: absolute;
         right: 10px;
+        transform: translateX(0px);
+        animation-name: moveLeft;
+        animation-duration: 1000ms;
+        -webkit-animation-name: moveLeft;
+        -webkit-animation-duration: 1000ms;
+        -webkit-transition: ease-in-out 1s;
         margin: 0;
         padding-right: 20px;
         top: 12px;
@@ -89,7 +166,6 @@ body{
             color:$light-text-color;
         }
     }
-
     /* BeerFinder Text */
     .main-brand-title{ 
         color:$light-text-color;
@@ -114,6 +190,7 @@ body{
         background-color: $light-text-color;
         border-radius: 30px;
         transition: ease-in-out .89s;
+        -webkit-transition: ease-in-out .89s;
         /* Larger Screens */
         @media (min-width: 576px){
             padding: 10px 5px 10px 20px;
@@ -129,15 +206,17 @@ body{
         margin-bottom: 0;
         margin-top: 0px;
         transition: ease-in-out .1s;
+        -webkit-transition: ease-in-out .1s;
     }
     .input-holder{
+        z-index: 10;
         width: 70%;
         padding-left: 10px;
             input, p{
             border: none;
             text-transform: capitalize;
-            font-size: 14px;
             transition: ease-in-out .1s;
+            -webkit-transition: ease-in-out .1s;
             width: 100%;
             @media (min-width: 576px){
                 letter-spacing: 2px;
@@ -152,22 +231,24 @@ body{
 
     button{
         border-radius: 30px;
-        width:150px;
+        width:100px;
         background-color: $accent-color;
         color: $light-text-color;
         border: none;
         padding:5px 25px;
         transition: ease-in-out 1s;
+        -webkit-transition: ease-in-out 1s;
 
         .icon{
             font-size: 1rem;
             padding-right: 10px;
             display: none;
             transition: ease-in-out 1s;
+            -webkit-transition: ease-in-out 1s;
         }
         @media (min-width: 576px){
-            padding:10px 30px;
-            
+            width: 150px;
+            padding:10px 25px;
             .icon{
                 display: inline;
             }
@@ -175,16 +256,19 @@ body{
         p{
             margin: 0 !important;
             transition: ease-in-out 1s;
+            -webkit-transition: ease-in-out 1s;
         }
        
     }
     .turn-red{
         transition: ease-in-out 1s;
         background-color: #E44700 ;
+        -webkit-transition: ease-in-out 1s;
     }
     button:active{
         transform: scale(.92);
         transition: ease-in-out .1s;
+        -webkit-transition: ease-in-out .1s;
 
         .icon{
             color: teal;
@@ -204,6 +288,7 @@ body{
     opacity: 1;
     padding:10px;
     transition: ease-in-out .3s;
+    -webkit-transition: ease-in-out .3s;
     transition-delay: 1s;
 }
 
@@ -214,6 +299,7 @@ body{
 .searched{
     height: 15vh !important;
     transition:  ease-in-out .89s !important;
+    -webkit-transition: ease-in-out .89s;
   
 }
 
@@ -284,6 +370,8 @@ footer{
     background-color: $red-notes;
     animation-name: opacityOn;
     animation-duration: 2500ms;
+    -webkit-animation-name: opacityOn;
+    -webkit-animation-duration: 2500ms;
     p{
         font-size: 18px;
     }
@@ -292,4 +380,10 @@ footer{
             left: 38%;
         }
     } */
+}
+
+/* Beer List Component Section */
+
+.height-80{
+    height: 80vh;
 }
