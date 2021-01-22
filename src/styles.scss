@@ -7,9 +7,12 @@ $accent-color: #33AAA8;
 $yellow-beer: #F8B600;
 $red-notes:#E04910;
 
-
+html{
+    min-height: -webkit-fill-available;
+}
 body{
     height: 100vh;
+    min-height: -webkit-fill-available;
     width: 100vw;
     margin: 0;
     padding: 0;
